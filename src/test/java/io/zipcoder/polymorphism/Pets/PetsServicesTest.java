@@ -103,4 +103,49 @@ class PetsServicesTest {
         Assertions.assertEquals(testUnicorn.toString(), actualUnicorn.toString());
     }
 
+    @Test
+    void getPetList() { //given when then
+        Dog dog = new Dog ("dog", "Spot", "brown");
+        Cat cat = new Cat("cat", "Patches", "Calico");
+        Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
+
+        PetsServices ps = new PetsServices();
+        List<Pets> testlist = new ArrayList<>();
+        testlist.add(dog);
+        testlist.add(cat);
+        testlist.add(unicorn);
+        ps.addToList(dog);
+        ps.addToList(cat);
+        ps.addToList(unicorn);
+
+        System.out.println(testlist);
+        String expected = testlist.toString();
+
+        String actual = String.valueOf(ps.getPetList());
+        System.out.println(actual);
+
+        Assertions.assertEquals(expected, actual);
+        testlist.clear();
+    }
+
+    @Test
+    void deleteTest() {
+        Dog dog = new Dog ("dog", "Spot", "brown");
+        Cat cat = new Cat("cat", "Patches", "Calico");
+        Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
+
+        PetsServices ps = new PetsServices();
+        List<Pets> testList = ps.getPetList();
+        ps.addToList(dog);
+        ps.addToList(cat);
+        ps.addToList(unicorn);
+
+        ps.delete("cat", "Patches");
+
+        Assertions.assertTrue(testList.contains(cat));
+    }
+
+    @Test
+    void clearWholeList() {
+    }
 }

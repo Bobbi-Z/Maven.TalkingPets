@@ -2,6 +2,7 @@ package io.zipcoder.polymorphism.Pets;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class PetsServices{
@@ -20,12 +21,24 @@ public class PetsServices{
     public static boolean delete(String type, String name){
         for (int index = 0; index < petList.size(); index++){
             Pets current = petList.get(index);
-            if (current.getType().equals(type) && current.getName().equals(name)){
+            String currentType = current.getType();
+            String currentName = current.getName();
+            if (Objects.equals(currentType, type) && Objects.equals(currentName, name)){
                 petList.remove(current);
                 return petList.contains(current);
             }
         }
         return false;
+    }
+
+    public static void splitStringBy(Pets pet){
+
+
+    }
+
+    public static boolean clearWholeList(){
+        petList.clear();
+        return petList.isEmpty();
     }
 
     public static Pets whatPetToCreate(String type, String name, String color){
