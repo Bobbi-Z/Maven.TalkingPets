@@ -61,9 +61,10 @@ class CatTest {
 
     @Test
     void toStringTest(){
-        String expected = "Pet type: cat \n" +
-                "Name: Patches \n" +
-                "Color: Calico \n" +
+        String expected = "Pet\n" +
+                "Type: cat\n" +
+                "Name: Patches\n" +
+                "Color: Calico\n" +
                 "They say: Meow!";
         Cat cat = new Cat("cat", "Patches", "Calico");
         String actual = cat.toString();

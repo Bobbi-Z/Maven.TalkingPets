@@ -1,5 +1,9 @@
 package io.zipcoder.polymorphism;
 
+import io.zipcoder.polymorphism.Pets.Cat;
+import io.zipcoder.polymorphism.Pets.Dog;
+import io.zipcoder.polymorphism.Pets.Unicorn;
+
 import java.util.Scanner;
 
 public class MainApplication {
@@ -107,15 +111,15 @@ public class MainApplication {
     public static String petSelection(Integer numOfSelection){
         switch(numOfSelection){
             case 1: //Dog
-                System.out.println("Woof!");
+                Dog.makeNoise();
                 petInfo(petSelection(1));
                 return "dog";
             case 2: //Cat
-                System.out.println("Meow!");
+                Cat.makeNoise();
                 petInfo(petSelection(2));
                 return "cat";
             case 3: //Unicorn
-                System.out.println("*Ethereal music starts playing*");
+                System.out.println(Unicorn.makeNoise());
                 petInfo(petSelection(3));
                 return "unicorn";
             case 4:

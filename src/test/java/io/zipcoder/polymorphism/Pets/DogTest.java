@@ -3,9 +3,7 @@ package io.zipcoder.polymorphism.Pets;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.testng.asserts.Assertion;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class DogTest {
 
@@ -63,9 +61,10 @@ class DogTest {
 
     @Test
     void toStringTest(){
-        String expected = "Pet type: dog \n" +
-                          "Name: Spot \n" +
-                          "Color: Brown \n" +
+        String expected = "Pet\n" +
+                          "Type: dog\n" +
+                          "Name: Spot\n" +
+                          "Color: Brown\n" +
                           "They say: Woof!";
         Dog dog = new Dog("dog", "Spot", "Brown");
         String actual = dog.toString();

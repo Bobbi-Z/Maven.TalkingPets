@@ -1,5 +1,25 @@
 package io.zipcoder.polymorphism.Pets;
 
-public class Pets {
+public interface Pets {
+
+    public  String getType();
+
+    public void setType(String type);
+
+    public String getName();
+
+    public void setName(String name);
+
+    public String getColor();
+
+    public void setColor(String color);
+
+    public static String makeNoise() {
+        return null;
+    }
+
+
+    @Override
+    public String toString();
 
 }

@@ -53,7 +53,7 @@ class UnicornTest {
 
     @Test
     void makeNoiseTest(){
-        String expectedNoise = "*Ethereal music starts playing*!";
+        String expectedNoise = "*Ethereal music starts playing*";
         Unicorn unicorn = new Unicorn();
         String actualNoise = unicorn.makeNoise();
         Assertions.assertEquals(expectedNoise, actualNoise);
@@ -61,13 +61,16 @@ class UnicornTest {
 
     @Test
     void toStringTest(){
-        String expected = "Pet type: unicorn \n" +
-                "Name: Sparkles \n" +
-                "Color: White \n" +
-                "They say: *Ethereal music starts playing*!";
+        String expected = "Pet\n" +
+                "Type: unicorn\n" +
+                "Name: Sparkles\n" +
+                "Color: White\n" +
+                "They say: *Ethereal music starts playing*";
         Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
         String actual = unicorn.toString();
         Assertions.assertEquals(expected, actual);
+        System.out.println(expected);
+        System.out.println(actual);
     }
 
 
