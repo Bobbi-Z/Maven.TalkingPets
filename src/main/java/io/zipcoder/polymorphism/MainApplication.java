@@ -111,11 +111,11 @@ public class MainApplication {
     public static String petSelection(Integer numOfSelection){
         switch(numOfSelection){
             case 1: //Dog
-                Dog.makeNoise();
+                System.out.println(Dog.makeNoise());
                 petInfo(petSelection(1));
                 return "dog";
             case 2: //Cat
-                Cat.makeNoise();
+                System.out.println(Cat.makeNoise());
                 petInfo(petSelection(2));
                 return "cat";
             case 3: //Unicorn
