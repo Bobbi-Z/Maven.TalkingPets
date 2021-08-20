@@ -55,7 +55,7 @@ class UnicornTest {
     void makeNoiseTest(){
         String expectedNoise = "*Ethereal music starts playing*";
         Unicorn unicorn = new Unicorn();
-        String actualNoise = unicorn.makeNoise();
+        String actualNoise = unicorn.speak();
         Assertions.assertEquals(expectedNoise, actualNoise);
     }
 

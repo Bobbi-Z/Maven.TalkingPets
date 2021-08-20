@@ -47,7 +47,7 @@ public class Unicorn implements Pets {
         this.color = color;
     }
 
-    public static String makeNoise() {
+    public static String speak() {
         return "*Ethereal music starts playing*";
     }
 
@@ -57,6 +57,6 @@ public class Unicorn implements Pets {
                 "Type: " + getType() + "\n" +
                 "Name: " + getName() + "\n" +
                 "Color: " + getColor() + "\n" +
-                "They say: " + makeNoise();
+                "They say: " + speak();
     }
 }

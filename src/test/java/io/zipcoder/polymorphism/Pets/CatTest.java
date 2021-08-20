@@ -55,7 +55,7 @@ class CatTest {
     void makeNoiseTest(){
         String expectedNoise = "Meow!";
         Cat cat = new Cat();
-        String actualNoise = cat.makeNoise();
+        String actualNoise = cat.speak();
         Assertions.assertEquals(expectedNoise, actualNoise);
     }
 

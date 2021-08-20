@@ -55,7 +55,7 @@ class DogTest {
     void makeNoiseTest(){
         String expectedNoise = "Woof!";
         Dog dog = new Dog();
-        String actualNoise = dog.makeNoise();
+        String actualNoise = dog.speak();
         Assertions.assertEquals(expectedNoise, actualNoise);
     }
 

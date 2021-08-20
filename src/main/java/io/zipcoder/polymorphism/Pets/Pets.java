@@ -14,7 +14,7 @@ public interface Pets {
 
     public void setColor(String color);
 
-    public static String makeNoise() {
+    public static String speak() {
         return null;
     }
 

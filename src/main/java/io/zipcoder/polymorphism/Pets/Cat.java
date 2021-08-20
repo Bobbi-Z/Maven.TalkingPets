@@ -46,7 +46,7 @@ public class Cat implements Pets {
     }
 
 
-    public static String makeNoise() {
+    public static String speak() {
         return "Meow!";
     }
 
@@ -55,6 +55,6 @@ public class Cat implements Pets {
                 "Type: " + getType() + "\n" +
                 "Name: " + getName() + "\n" +
                 "Color: " + getColor() + "\n" +
-                "They say: " + makeNoise();
+                "They say: " + speak();
     }
 }

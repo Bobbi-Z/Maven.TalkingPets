@@ -18,31 +18,31 @@ public class Dog implements Pets{
     }
 
 
-    public String getType() {
+    public  String getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public  void setType(String type) {
         this.type = type;
     }
 
-    public String getName() {
+    public  String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public  void setName(String name) {
         this.name = name;
     }
 
-    public String getColor() {
+    public  String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public  void setColor(String color) {
         this.color = color;
     }
 
-    public static String makeNoise() {
+    public static String speak() {
         return "Woof!";
     }
 
@@ -52,6 +52,6 @@ public class Dog implements Pets{
                 "Type: " + getType() + "\n" +
                 "Name: " + getName() + "\n" +
                 "Color: " + getColor() + "\n" +
-                "They say: " + makeNoise();
+                "They say: " + speak();
     }
 }
