@@ -16,15 +16,13 @@ class PetsServicesTest {
         String type = "dog";
         String color = "brown";
 
-        PetsServices ps = new PetsServices();
         Dog testDog = new Dog(type, name, color);
-        List<Pets> testList = new ArrayList<>();
 
-        Boolean expected = testList.add(testDog);
-        Boolean actual = ps.addToList(testDog);
+        Boolean actual = PetsServices.addToList(testDog);
 
-        Assertions.assertEquals(expected, actual);
-        testList.clear();
+        Assertions.assertEquals(true, actual);
+
+        PetsServices.clearWholeList();
     }
 
     @Test
@@ -33,15 +31,13 @@ class PetsServicesTest {
         String type = "cat";
         String color = "calico";
 
-        PetsServices ps = new PetsServices();
         Cat testCat = new Cat(type, name, color);
-        List<Pets> testList = new ArrayList<>();
 
-        Boolean expected = testList.add(testCat);
-        Boolean actual = ps.addToList(testCat);
+        Boolean actual = PetsServices.addToList(testCat);
 
-        Assertions.assertEquals(expected, actual);
-        testList.clear();
+        Assertions.assertEquals(true, actual);
+
+        PetsServices.clearWholeList();
     }
 
     @Test
@@ -50,15 +46,13 @@ class PetsServicesTest {
         String type = "unicorn";
         String color = "white";
 
-        PetsServices ps = new PetsServices();
         Unicorn testUnicorn = new Unicorn(type, name, color);
-        List<Pets> testList = new ArrayList<>();
 
-        Boolean expected = testList.add(testUnicorn);
-        Boolean actual = ps.addToList(testUnicorn);
+        Boolean actual = PetsServices.addToList(testUnicorn);
 
-        Assertions.assertEquals(expected, actual);
-        testList.clear();
+        Assertions.assertEquals(true, actual);
+
+        PetsServices.clearWholeList();
     }
 
     @Test
@@ -67,12 +61,11 @@ class PetsServicesTest {
         String type = "dog";
         String color = "brown";
 
-        PetsServices ps = new PetsServices();
-
         Dog testDog = new Dog("dog", "spot", "brown");
-        Dog actualDog = ps.createDog(type, name, color);
+        Dog actualDog = PetsServices.createDog(type, name, color);
 
         Assertions.assertEquals(testDog.toString(), actualDog.toString());
+        PetsServices.clearWholeList();
     }
 
     @Test
@@ -81,12 +74,11 @@ class PetsServicesTest {
         String type = "cat";
         String color = "brown";
 
-        PetsServices ps = new PetsServices();
-
         Cat testCat = new Cat("cat", "spot", "brown");
-        Cat actualCat = ps.createCat(type, name, color);
+        Cat actualCat = PetsServices.createCat(type, name, color);
 
         Assertions.assertEquals(testCat.toString(), actualCat.toString());
+        PetsServices.clearWholeList();
     }
 
     @Test
@@ -95,12 +87,11 @@ class PetsServicesTest {
         String type = "unicorn";
         String color = "brown";
 
-        PetsServices ps = new PetsServices();
-
         Unicorn testUnicorn = new Unicorn("unicorn", "spot", "brown");
-        Unicorn actualUnicorn = ps.createUnicorn(type, name, color);
+        Unicorn actualUnicorn = PetsServices.createUnicorn(type, name, color);
 
         Assertions.assertEquals(testUnicorn.toString(), actualUnicorn.toString());
+        PetsServices.clearWholeList();
     }
 
     @Test
@@ -109,23 +100,23 @@ class PetsServicesTest {
         Cat cat = new Cat("cat", "Patches", "Calico");
         Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
 
-        PetsServices ps = new PetsServices();
-        List<Pets> testlist = new ArrayList<>();
-        testlist.add(dog);
-        testlist.add(cat);
-        testlist.add(unicorn);
-        ps.addToList(dog);
-        ps.addToList(cat);
-        ps.addToList(unicorn);
+        List<Pets> testList = new ArrayList<>();
+        testList.add(dog);
+        testList.add(cat);
+        testList.add(unicorn);
+        PetsServices.addToList(dog);
+        PetsServices.addToList(cat);
+        PetsServices.addToList(unicorn);
 
-        System.out.println(testlist);
-        String expected = testlist.toString();
+        System.out.println(testList);
+        String expected = testList.toString();
 
-        String actual = String.valueOf(ps.getPetList());
+        String actual = String.valueOf(PetsServices.getPetList());
         System.out.println(actual);
 
         Assertions.assertEquals(expected, actual);
-        testlist.clear();
+        testList.clear();
+        PetsServices.clearWholeList();
     }
 
     @Test
@@ -134,18 +125,33 @@ class PetsServicesTest {
         Cat cat = new Cat("cat", "Patches", "Calico");
         Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
 
-        PetsServices ps = new PetsServices();
-        List<Pets> testList = ps.getPetList();
-        ps.addToList(dog);
-        ps.addToList(cat);
-        ps.addToList(unicorn);
+        List<Pets> testList = PetsServices.getPetList();
+        PetsServices.addToList(dog);
+        PetsServices.addToList(cat);
+        PetsServices.addToList(unicorn);
 
-        ps.delete("cat", "Patches");
+        PetsServices.delete("cat", "Patches");
 
-        Assertions.assertTrue(testList.contains(cat));
+        Assertions.assertFalse(testList.contains(cat));
+        testList.clear();
+        PetsServices.clearWholeList();
     }
 
     @Test
     void clearWholeList() {
+        Dog dog = new Dog ("dog", "Spot", "brown");
+        Cat cat = new Cat("cat", "Patches", "Calico");
+        Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
+
+        List<Pets> testList = PetsServices.getPetList();
+        PetsServices.addToList(dog);
+        PetsServices.addToList(cat);
+        PetsServices.addToList(unicorn);
+
+        PetsServices.clearWholeList();
+
+        Assertions.assertTrue(testList.isEmpty());
+        PetsServices.clearWholeList();
+
     }
 }

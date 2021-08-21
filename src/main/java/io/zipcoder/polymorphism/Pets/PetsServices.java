@@ -24,17 +24,12 @@ public class PetsServices{
             String currentType = current.getType();
             String currentName = current.getName();
             if (Objects.equals(currentType, type) && Objects.equals(currentName, name)){
-                petList.remove(current);
-                return petList.contains(current);
+                return petList.remove(current);
             }
         }
         return false;
     }
 
-    public static void splitStringBy(Pets pet){
-
-
-    }
 
     public static boolean clearWholeList(){
         petList.clear();
