@@ -2,6 +2,7 @@ package io.zipcoder.polymorphism.IO;
 
 import io.zipcoder.polymorphism.Pets.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import static io.zipcoder.polymorphism.IO.Console.petMenu;
@@ -39,7 +40,7 @@ public class UserInput {
     }
 
 
-    public static Pets petInfo(String petType){
+    public static Pets petInfo(String petType) throws IOException {
         System.out.println("Please enter your " + petType + "'s information:");
         return PetsServices.whatPetToCreate(petType, petName(), petColor());
     }
