@@ -2,9 +2,6 @@ package io.zipcoder.polymorphism.Pets;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 class CatTest {
 
     @Test
@@ -54,8 +51,7 @@ class CatTest {
     @Test
     void makeNoiseTest(){
         String expectedNoise = "Meow!";
-        Cat cat = new Cat();
-        String actualNoise = cat.speak();
+        String actualNoise = Cat.speak();
         Assertions.assertEquals(expectedNoise, actualNoise);
     }
 

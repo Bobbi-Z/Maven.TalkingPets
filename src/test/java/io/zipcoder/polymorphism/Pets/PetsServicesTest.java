@@ -2,17 +2,13 @@ package io.zipcoder.polymorphism.Pets;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 
 class PetsServicesTest {
 
     @Test
-    void addDogTest() throws IOException {
+    void addDogTest()   {
         String name = "spot";
         String type = "dog";
         String color = "brown";
@@ -27,7 +23,7 @@ class PetsServicesTest {
     }
 
     @Test
-    void addCatTest() throws IOException {
+    void addCatTest()   {
         String name = "patches";
         String type = "cat";
         String color = "calico";
@@ -42,7 +38,7 @@ class PetsServicesTest {
     }
 
     @Test
-    void addUnicornTest() throws IOException {
+    void addUnicornTest()   {
         String name = "sparkles";
         String type = "unicorn";
         String color = "white";
@@ -57,7 +53,7 @@ class PetsServicesTest {
     }
 
     @Test
-    void createDogTest() throws IOException {
+    void createDogTest()   {
         String name = "spot";
         String type = "dog";
         String color = "brown";
@@ -70,7 +66,7 @@ class PetsServicesTest {
     }
 
     @Test
-    void createCatTest() throws IOException {
+    void createCatTest()   {
         String name = "spot";
         String type = "cat";
         String color = "brown";
@@ -83,7 +79,7 @@ class PetsServicesTest {
     }
 
     @Test
-    void createUnicornTest() throws IOException {
+    void createUnicornTest()   {
         String name = "spot";
         String type = "unicorn";
         String color = "brown";
@@ -96,7 +92,7 @@ class PetsServicesTest {
     }
 
     @Test
-    void getPetList() throws IOException { //given when then
+    void getPetList()   { //given when then
         Dog dog = new Dog ("dog", "Spot", "brown");
         Cat cat = new Cat("cat", "Patches", "Calico");
         Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
@@ -121,7 +117,7 @@ class PetsServicesTest {
     }
 
     @Test
-    void deleteTest() throws IOException {
+    void deleteTest()   {
         Dog dog = new Dog ("dog", "Spot", "brown");
         Cat cat = new Cat("cat", "Patches", "Calico");
         Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
@@ -139,7 +135,7 @@ class PetsServicesTest {
     }
 
     @Test
-    void clearWholeList() throws IOException {
+    void clearWholeList()   {
         Dog dog = new Dog ("dog", "Spot", "brown");
         Cat cat = new Cat("cat", "Patches", "Calico");
         Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");

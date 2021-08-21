@@ -23,7 +23,7 @@ public class Dog implements Pets{
     }
 
     public  void setType(String type) {
-        this.type = type;
+        Dog.type = type;
     }
 
     public  String getName() {
@@ -31,7 +31,7 @@ public class Dog implements Pets{
     }
 
     public  void setName(String name) {
-        this.name = name;
+        Dog.name = name;
     }
 
     public  String getColor() {
@@ -39,7 +39,7 @@ public class Dog implements Pets{
     }
 
     public  void setColor(String color) {
-        this.color = color;
+        Dog.color = color;
     }
 
     public static String speak() {

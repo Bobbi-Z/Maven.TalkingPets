@@ -3,8 +3,6 @@ package io.zipcoder.polymorphism.Pets;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class UnicornTest {
 
     @Test
@@ -54,8 +52,7 @@ class UnicornTest {
     @Test
     void makeNoiseTest(){
         String expectedNoise = "*Ethereal music starts playing*";
-        Unicorn unicorn = new Unicorn();
-        String actualNoise = unicorn.speak();
+        String actualNoise = Unicorn.speak();
         Assertions.assertEquals(expectedNoise, actualNoise);
     }
 

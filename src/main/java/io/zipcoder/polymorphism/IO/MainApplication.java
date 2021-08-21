@@ -1,33 +1,28 @@
 package io.zipcoder.polymorphism.IO;
 
-
 import io.zipcoder.polymorphism.Pets.PetsServices;
-
-
-import java.io.IOException;
-
 import static io.zipcoder.polymorphism.IO.Console.*;
 import static io.zipcoder.polymorphism.IO.UserInput.*;
 
 public class MainApplication {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)   {
         MainApplication petsApp = new MainApplication();
         petsApp.init();
 
     }
 
-    public void init() throws IOException {
+    public void init()   {
         PetsServices.readJSON();
         welcome();
     }
 
 
-    public void welcome() throws IOException {
+    public void welcome()   {
         welcomeScreen();
         mainMenu();
     }
 
-    public static void mainMenu() throws IOException {
+    public static void mainMenu()   {
         mainMenuDisplay();
         switch (numberInput()){
             case 1:
@@ -59,14 +54,14 @@ public class MainApplication {
         PetsServices.delete(UserInput.petType(numberInput()), UserInput.petName());
     }
 
-    public static void addAPet() throws IOException {
+    public static void addAPet()   {
         petSelection(UserInput.petType(numberInput()));
         whatsNext();
     }
 
 
 
-    public static void petSelection(String petType) throws IOException {
+    public static void petSelection(String petType)   {
         switch(petType) {
             case "dog": //Dog
                 PetsServices.addToList(petInfo(petType));
@@ -84,7 +79,7 @@ public class MainApplication {
         System.out.println("That is not a valid choice! Please choose again.");
     }
 
-public static void whatsNext() throws IOException {
+public static void whatsNext()   {
     System.out.println("To return to the main menu enter 1 or to exit enter 0.");
     switch (numberInput()){
         case 0:

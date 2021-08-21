@@ -1,0 +1,13 @@
+[ {
+  "color" : "brown",
+  "type" : "dog",
+  "name" : "Spot"
+}, {
+  "color" : "Calico",
+  "type" : "cat",
+  "name" : "Patches"
+}, {
+  "color" : "White",
+  "type" : "unicorn",
+  "name" : "Sparkles"
+} ]

@@ -22,7 +22,7 @@ public class Cat implements Pets {
     }
 
     public void setType(String type) {
-        this.type = type;
+        Cat.type = type;
     }
 
 
@@ -32,7 +32,7 @@ public class Cat implements Pets {
 
 
     public void setName(String name) {
-        this.name = name;
+        Cat.name = name;
     }
 
 
@@ -42,7 +42,7 @@ public class Cat implements Pets {
 
 
     public void setColor(String color) {
-        this.color = color;
+        Cat.color = color;
     }
 
 

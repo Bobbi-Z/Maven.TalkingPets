@@ -24,7 +24,7 @@ public class Unicorn implements Pets {
 
     @Override
     public void setType(String type) {
-    this.type = type;
+    Unicorn.type = type;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class Unicorn implements Pets {
 
     @Override
     public void setName(String name) {
-        this.name = name;
+        Unicorn.name = name;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Unicorn implements Pets {
 
     @Override
     public void setColor(String color) {
-        this.color = color;
+        Unicorn.color = color;
     }
 
     public static String speak() {
