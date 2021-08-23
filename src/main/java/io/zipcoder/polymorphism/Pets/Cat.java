@@ -1,8 +1,12 @@
 package io.zipcoder.polymorphism.Pets;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Cat implements Pets {
 
-    private static String type;
+    private static Integer id;
+    private static String species;
     private static String name;
     private static String color;
 
@@ -11,18 +15,29 @@ public class Cat implements Pets {
 
     }
 
-    public Cat(String type, String name, String color) {
-        setType(type);
-        setName(name);
-        setColor(color);
+//    public Cat(Integer id, String species, String name, String color) {
+//        setId(id);
+//        setSpecies(species);
+//        setName(name);
+//        setColor(color);
+//    }
+
+    @Override
+    public Integer getId(){
+        return id;
     }
 
-    public String getType() {
-        return type;
+    @Override
+    public void setId(Integer id){
+        Cat.id = id;
     }
 
-    public void setType(String type) {
-        Cat.type = type;
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        Cat.species = species;
     }
 
 
@@ -52,9 +67,18 @@ public class Cat implements Pets {
 
     public String toString() {
         return "Pet\n" +
-                "Type: " + getType() + "\n" +
+                "Species: " + getSpecies() + "\n" +
                 "Name: " + getName() + "\n" +
                 "Color: " + getColor() + "\n" +
                 "They say: " + speak();
+    }
+
+    @JsonCreator
+    public Cat(@JsonProperty("id") Integer id, @JsonProperty ("species")String species, @JsonProperty("name")String name, @JsonProperty ("color")String color){
+
+        Cat.id = id;
+        Cat.species = species;
+        Cat.name = name;
+        Cat.color = color;
     }
 }

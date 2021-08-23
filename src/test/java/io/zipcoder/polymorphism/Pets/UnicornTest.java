@@ -1,5 +1,7 @@
 package io.zipcoder.polymorphism.Pets;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -7,18 +9,21 @@ class UnicornTest {
 
     @Test
     void constructorTest() {
+        Integer expectedId = 1;
         String expectedName = "sparkles";
-        String expectedType = "unicorn";
+        String expectedSpecies = "unicorn";
         String expectedColor = "white";
 
-        Unicorn unicorn = new Unicorn(expectedType, expectedName, expectedColor);
-
+        Unicorn unicorn = new Unicorn(expectedId, expectedSpecies, expectedName, expectedColor);
+        
+        Integer actualId = unicorn.getId();
         String actualName = unicorn.getName();
-        String actualType = unicorn.getType();
+        String actualSpecies = unicorn.getSpecies();
         String actualColor = unicorn.getColor();
 
+        Assertions.assertEquals(expectedId, actualId);
         Assertions.assertEquals(expectedName, actualName);
-        Assertions.assertEquals(expectedType, actualType);
+        Assertions.assertEquals(expectedSpecies, actualSpecies);
         Assertions.assertEquals(expectedColor, actualColor);
     }
 
@@ -32,12 +37,12 @@ class UnicornTest {
     }
 
     @Test
-    void setTypeTest(){
-        String expectedType = "unicorn";
+    void setSpeciesTest(){
+        String expectedSpecies = "unicorn";
         Unicorn unicorn = new Unicorn();
-        unicorn.setType(expectedType);
-        String actualType = unicorn.getType();
-        Assertions.assertEquals(expectedType, actualType);
+        unicorn.setSpecies(expectedSpecies);
+        String actualSpecies = unicorn.getSpecies();
+        Assertions.assertEquals(expectedSpecies, actualSpecies);
     }
 
     @Test
@@ -59,16 +64,16 @@ class UnicornTest {
     @Test
     void toStringTest(){
         String expected = "Pet\n" +
-                "Type: unicorn\n" +
+                "Species: unicorn\n" +
                 "Name: Sparkles\n" +
                 "Color: White\n" +
                 "They say: *Ethereal music starts playing*";
-        Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
+        Unicorn unicorn = new Unicorn(1, "unicorn", "Sparkles", "White");
         String actual = unicorn.toString();
         Assertions.assertEquals(expected, actual);
         System.out.println(expected);
         System.out.println(actual);
     }
-
+    
 
 }

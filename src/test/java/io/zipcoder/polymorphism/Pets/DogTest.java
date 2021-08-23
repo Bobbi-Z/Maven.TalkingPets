@@ -7,18 +7,21 @@ class DogTest {
 
     @Test
     void constructorTest() {
+        Integer expectedId = 1;
         String expectedName = "spot";
-        String expectedType = "dog";
+        String expectedSpecies = "dog";
         String expectedColor = "brown";
 
-        Dog dog = new Dog(expectedType, expectedName, expectedColor);
+        Dog dog = new Dog(expectedId, expectedSpecies, expectedName, expectedColor);
 
+        Integer actualId = dog.getId();
         String actualName = dog.getName();
-        String actualType = dog.getType();
+        String actualSpecies = dog.getSpecies();
         String actualColor = dog.getColor();
 
+        Assertions.assertEquals(expectedId, actualId);
         Assertions.assertEquals(expectedName, actualName);
-        Assertions.assertEquals(expectedType, actualType);
+        Assertions.assertEquals(expectedSpecies, actualSpecies);
         Assertions.assertEquals(expectedColor, actualColor);
     }
 
@@ -32,12 +35,12 @@ class DogTest {
     }
 
     @Test
-    void setTypeTest(){
-        String expectedType = "dog";
+    void setSpeciesTest(){
+        String expectedSpecies = "dog";
         Dog dog = new Dog();
-        dog.setType(expectedType);
-        String actualType = dog.getType();
-        Assertions.assertEquals(expectedType, actualType);
+        dog.setSpecies(expectedSpecies);
+        String actualSpecies = dog.getSpecies();
+        Assertions.assertEquals(expectedSpecies, actualSpecies);
     }
 
     @Test
@@ -59,11 +62,11 @@ class DogTest {
     @Test
     void toStringTest(){
         String expected = "Pet\n" +
-                          "Type: dog\n" +
+                          "Species: dog\n" +
                           "Name: Spot\n" +
                           "Color: Brown\n" +
                           "They say: Woof!";
-        Dog dog = new Dog("dog", "Spot", "Brown");
+        Dog dog = new Dog(1, "dog", "Spot", "Brown");
         String actual = dog.toString();
         Assertions.assertEquals(expected, actual);
     }

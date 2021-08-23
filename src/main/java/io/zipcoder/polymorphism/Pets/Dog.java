@@ -1,8 +1,13 @@
 package io.zipcoder.polymorphism.Pets;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Dog implements Pets{
-    private static String type;
+    
+    private static Integer id;
+    private static String species;
     private static String name;
     private static String color;
 
@@ -11,19 +16,37 @@ public class Dog implements Pets{
 
     }
 
-    public Dog(String type, String name, String color) {
-       setType(type);
-       setName(name);
-       setColor(color);
+//    public Dog(String dog, String spot, String brown){
+//        setSpecies(species);
+//        setName(name);
+//        setColor(color);
+//
+//    }
+//
+//        public Dog(Integer id, String species, String name, String color) { 
+//        setId(id);
+//       setSpecies(species);
+//       setName(name);
+//       setColor(color);
+//    }
+
+
+    @Override
+    public Integer getId(){
+        return id;
     }
 
-
-    public  String getType() {
-        return type;
+    @Override
+    public void setId(Integer id){
+    Dog.id = id;
     }
 
-    public  void setType(String type) {
-        Dog.type = type;
+    public  String getSpecies() {
+        return species;
+    }
+
+    public  void setSpecies(String species) {
+        Dog.species = species;
     }
 
     public  String getName() {
@@ -49,9 +72,18 @@ public class Dog implements Pets{
 
     public String toString() {
         return "Pet\n" +
-                "Type: " + getType() + "\n" +
+                "Species: " + getSpecies() + "\n" +
                 "Name: " + getName() + "\n" +
                 "Color: " + getColor() + "\n" +
                 "They say: " + speak();
+    }
+    
+    @JsonCreator
+    public Dog(@JsonProperty("id") Integer id, @JsonProperty ("species")String species, @JsonProperty("name")String name,  @JsonProperty ("color")String color){
+        
+        Dog.id = id;
+        Dog.species = species;
+        Dog.name = name;
+        Dog.color = color;
     }
 }

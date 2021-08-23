@@ -13,6 +13,7 @@ import java.util.Objects;
 public class PetsServices{
 
     static List<Pets> petList = new ArrayList<>();
+    static Integer id = 0;
 
     public static boolean addToList(Pets pet)   {
      petList.add(pet);
@@ -24,12 +25,12 @@ public class PetsServices{
         return petList;
     }
 
-    public static void delete(String type, String name){
+    public static void delete(String species, String name){
         for (int index = 0; index < petList.size(); index++){
             Pets current = petList.get(index);
-            String currentType = current.getType();
+            String currentSpecies = current.getSpecies();
             String currentName = current.getName();
-            if (Objects.equals(currentType, type) && Objects.equals(currentName, name)){
+            if (Objects.equals(currentSpecies, species) && Objects.equals(currentName, name)){
                 petList.remove(current);
             }
         }
@@ -40,32 +41,32 @@ public class PetsServices{
         petList.clear();
     }
 
-    public static Pets whatPetToCreate(String type, String name, String color)   {
-        switch (type){
+    public static Pets whatPetToCreate(String species, String name, String color)   {
+        switch (species){
             case "dog":
-                return createDog(type, name, color);
+                return createDog(species, name, color);
             case "cat":
-                return createCat(type, name, color);
+                return createCat(species, name, color);
             case "unicorn":
-                return createUnicorn(type, name, color);
+                return createUnicorn(species, name, color);
         }
         return null;
     }
 
-    public static Dog createDog(String type, String name, String color)   {
-        Dog dog = new Dog(type, name, color);
+    public static Dog createDog(String species, String name, String color)   {
+        Dog dog = new Dog(id++, species, name, color);
         addToList(dog);
         return dog;
     }
 
-    public static Cat createCat(String type, String name, String color)   {
-        Cat cat = new Cat(type, name, color);
+    public static Cat createCat(String species, String name, String color)   {
+        Cat cat = new Cat(id++, species, name, color);
         addToList(cat);
         return cat;
     }
 
-    public static Unicorn createUnicorn(String type, String name, String color)   {
-        Unicorn unicorn = new Unicorn(type, name, color);
+    public static Unicorn createUnicorn(String species, String name, String color)   {
+        Unicorn unicorn = new Unicorn(id++, species, name, color);
         addToList(unicorn);
         return unicorn;
     }
@@ -80,18 +81,18 @@ public class PetsServices{
         }
     }
 
-    public static void readJSON(){
-        ObjectMapper mapper = new ObjectMapper();
-        SimpleModule module = new SimpleModule();
-        module.addDeserializer(Pets.class, new PetsDeserializer());
-        mapper.registerModule(module);
-        try {
-            Pets pets = mapper.readValue(new File("pets.json"), Pets.class);
-            addToList(pets);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    public static void readJSON(){
+//        ObjectMapper mapper = new ObjectMapper();
+//        SimpleModule module = new SimpleModule();
+//        module.addDeserializer(Pets.class, new PetsDeserializer());
+//        mapper.registerModule(module);
+//        try {
+//            Pets pets = mapper.readValue(new File("pets.json"), Pets.class);
+//            addToList(pets);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
 }

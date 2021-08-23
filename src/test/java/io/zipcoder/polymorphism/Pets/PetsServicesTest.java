@@ -9,11 +9,12 @@ class PetsServicesTest {
 
     @Test
     void addDogTest()   {
+        Integer id = 1;
         String name = "spot";
         String type = "dog";
         String color = "brown";
 
-        Dog testDog = new Dog(type, name, color);
+        Dog testDog = new Dog(id, type, name, color);
 
         Boolean actual = PetsServices.addToList(testDog);
 
@@ -24,11 +25,12 @@ class PetsServicesTest {
 
     @Test
     void addCatTest()   {
+        Integer id = 1;
         String name = "patches";
         String type = "cat";
         String color = "calico";
 
-        Cat testCat = new Cat(type, name, color);
+        Cat testCat = new Cat(id, type, name, color);
 
         Boolean actual = PetsServices.addToList(testCat);
 
@@ -39,11 +41,12 @@ class PetsServicesTest {
 
     @Test
     void addUnicornTest()   {
+        Integer id = 1;
         String name = "sparkles";
         String type = "unicorn";
         String color = "white";
 
-        Unicorn testUnicorn = new Unicorn(type, name, color);
+        Unicorn testUnicorn = new Unicorn(id, type, name, color);
 
         Boolean actual = PetsServices.addToList(testUnicorn);
 
@@ -58,7 +61,7 @@ class PetsServicesTest {
         String type = "dog";
         String color = "brown";
 
-        Dog testDog = new Dog("dog", "spot", "brown");
+        Dog testDog = new Dog(1, "dog", "spot", "brown");
         Dog actualDog = PetsServices.createDog(type, name, color);
 
         Assertions.assertEquals(testDog.toString(), actualDog.toString());
@@ -71,7 +74,7 @@ class PetsServicesTest {
         String type = "cat";
         String color = "brown";
 
-        Cat testCat = new Cat("cat", "spot", "brown");
+        Cat testCat = new Cat(1, "cat", "spot", "brown");
         Cat actualCat = PetsServices.createCat(type, name, color);
 
         Assertions.assertEquals(testCat.toString(), actualCat.toString());
@@ -84,7 +87,7 @@ class PetsServicesTest {
         String type = "unicorn";
         String color = "brown";
 
-        Unicorn testUnicorn = new Unicorn("unicorn", "spot", "brown");
+        Unicorn testUnicorn = new Unicorn(1,"unicorn", "spot", "brown");
         Unicorn actualUnicorn = PetsServices.createUnicorn(type, name, color);
 
         Assertions.assertEquals(testUnicorn.toString(), actualUnicorn.toString());
@@ -93,9 +96,9 @@ class PetsServicesTest {
 
     @Test
     void getPetList()   { //given when then
-        Dog dog = new Dog ("dog", "Spot", "brown");
-        Cat cat = new Cat("cat", "Patches", "Calico");
-        Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
+        Dog dog = new Dog (1,"dog", "Spot", "brown");
+        Cat cat = new Cat(2,"cat", "Patches", "Calico");
+        Unicorn unicorn = new Unicorn(3, "unicorn", "Sparkles", "White");
 
         List<Pets> testList = new ArrayList<>();
         testList.add(dog);
@@ -118,9 +121,9 @@ class PetsServicesTest {
 
     @Test
     void deleteTest()   {
-        Dog dog = new Dog ("dog", "Spot", "brown");
-        Cat cat = new Cat("cat", "Patches", "Calico");
-        Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
+        Dog dog = new Dog (1, "dog", "Spot", "brown");
+        Cat cat = new Cat(2, "cat", "Patches", "Calico");
+        Unicorn unicorn = new Unicorn(3, "unicorn", "Sparkles", "White");
 
         List<Pets> testList = PetsServices.getPetList();
         PetsServices.addToList(dog);
@@ -136,9 +139,9 @@ class PetsServicesTest {
 
     @Test
     void clearWholeList()   {
-        Dog dog = new Dog ("dog", "Spot", "brown");
-        Cat cat = new Cat("cat", "Patches", "Calico");
-        Unicorn unicorn = new Unicorn("unicorn", "Sparkles", "White");
+        Dog dog = new Dog (1, "dog", "Spot", "brown");
+        Cat cat = new Cat(2, "cat", "Patches", "Calico");
+        Unicorn unicorn = new Unicorn(3, "unicorn", "Sparkles", "White");
 
         List<Pets> testList = PetsServices.getPetList();
         PetsServices.addToList(dog);

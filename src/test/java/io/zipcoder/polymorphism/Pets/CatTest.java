@@ -6,18 +6,21 @@ class CatTest {
 
     @Test
     void constructorTest() {
+        Integer expectedId = 1;
         String expectedName = "patches";
-        String expectedType = "cat";
+        String expectedSpecies = "cat";
         String expectedColor = "calico";
 
-        Cat cat = new Cat(expectedType, expectedName, expectedColor);
+        Cat cat = new Cat(expectedId, expectedSpecies, expectedName, expectedColor);
 
+        Integer actualId =cat.getId();
         String actualName = cat.getName();
-        String actualType = cat.getType();
+        String actualSpecies = cat.getSpecies();
         String actualColor = cat.getColor();
 
+        Assertions.assertEquals(expectedId, actualId);
         Assertions.assertEquals(expectedName, actualName);
-        Assertions.assertEquals(expectedType, actualType);
+        Assertions.assertEquals(expectedSpecies, actualSpecies);
         Assertions.assertEquals(expectedColor, actualColor);
     }
 
@@ -31,12 +34,12 @@ class CatTest {
     }
 
     @Test
-    void setTypeTest(){
-        String expectedType = "cat";
+    void setSpeciesTest(){
+        String expectedSpecies = "cat";
         Cat cat = new Cat();
-        cat.setType(expectedType);
-        String actualType = cat.getType();
-        Assertions.assertEquals(expectedType, actualType);
+        cat.setSpecies(expectedSpecies);
+        String actualSpecies = cat.getSpecies();
+        Assertions.assertEquals(expectedSpecies, actualSpecies);
     }
 
     @Test
@@ -58,11 +61,11 @@ class CatTest {
     @Test
     void toStringTest(){
         String expected = "Pet\n" +
-                "Type: cat\n" +
+                "Species: cat\n" +
                 "Name: Patches\n" +
                 "Color: Calico\n" +
                 "They say: Meow!";
-        Cat cat = new Cat("cat", "Patches", "Calico");
+        Cat cat = new Cat(1, "cat", "Patches", "Calico");
         String actual = cat.toString();
         Assertions.assertEquals(expected, actual);
     }

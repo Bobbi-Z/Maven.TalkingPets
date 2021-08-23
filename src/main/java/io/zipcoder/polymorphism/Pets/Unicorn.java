@@ -1,30 +1,44 @@
 package io.zipcoder.polymorphism.Pets;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Unicorn implements Pets {
 
-    private static String type;
+    private static String species;
     private static String name;
     private static String color;
+    private static Integer id;
+    
 
 
     public Unicorn() {
 
     }
 
-    public Unicorn(String type, String name, String color) {
-        setType(type);
-        setName(name);
-        setColor(color);
+//    public Unicorn(Integer id, String species, String name, String color) {
+//        setId(id);
+//        setSpecies(species);
+//        setName(name);
+//        setColor(color);
+//    }
+
+
+
+    public Integer getId(){
+        return id;
     }
     
+    public void setId(Integer id){
+            Unicorn.id = id;
+    }
 
-    public String getType() {
-        return type;
+    public String getSpecies() {
+        return species;
     }
 
     @Override
-    public void setType(String type) {
-    Unicorn.type = type;
+    public void setSpecies(String species) {
+    Unicorn.species = species;
     }
 
     @Override
@@ -54,9 +68,18 @@ public class Unicorn implements Pets {
     @Override
     public String toString() {
         return "Pet\n" +
-                "Type: " + getType() + "\n" +
+                "Species: " + getSpecies() + "\n" +
                 "Name: " + getName() + "\n" +
                 "Color: " + getColor() + "\n" +
                 "They say: " + speak();
     }
+
+    public Unicorn(@JsonProperty("id") Integer id, @JsonProperty ("species")String species, @JsonProperty("name")String name, @JsonProperty ("color")String color){
+
+        Unicorn.id = id;
+        Unicorn.species = species;
+        Unicorn.name = name;
+        Unicorn.color = color;
+    }
+    
 }
