@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -82,11 +84,16 @@ public class PetsServices{
 
     public static void readJSON(){
         ObjectMapper mapper = new ObjectMapper();
+        SimpleModule module = new SimpleModule();
+        module.addDeserializer(Pets.class, new PetsDeserializer());
+        mapper.registerModule(module);
         try {
-            petList = mapper.readValue(new File("pets.json"), new TypeReference<List<Pets>>() {});
+            Pets pets = mapper.readValue(new File("pets.json"), Pets.class);
+            addToList(pets);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 }
