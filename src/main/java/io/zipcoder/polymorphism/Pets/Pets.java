@@ -9,7 +9,9 @@ import static sun.tools.java.Constants.CLASS;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 
 @JsonSubTypes({
-     @JsonSubTypes.Type (value = Dog.class), @JsonSubTypes.Type (value = Cat.class), @JsonSubTypes.Type(value = Unicorn.class)
+     @JsonSubTypes.Type (value = Dog.class,  name = "dog"),
+     @JsonSubTypes.Type (value = Cat.class, name = "cat"),
+     @JsonSubTypes.Type(value = Unicorn.class, name = "unicorn")
 })
 
 

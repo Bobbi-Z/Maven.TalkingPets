@@ -88,6 +88,7 @@ public void setList (List<Pets> petList){
 
     public static void writeJSON()  {
         ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping(); //ugh
         ObjectWriter writer= mapper.writer(new DefaultPrettyPrinter());
         try {
             writer.writeValue(new File("pets.json"), petList);
