@@ -12,7 +12,7 @@ public class MainApplication {
     }
 
     public void init()   {
-//        PetsServices.readJSON();
+        PetsServices.readJSON();
         welcome();
     }
 
@@ -24,7 +24,8 @@ public class MainApplication {
 
     public static void mainMenu()   {
         mainMenuDisplay();
-        switch (numberInput()){
+        int menuChoice = numberInput();
+        switch (menuChoice){
             case 1:
                 addAPet();
                 break;
@@ -51,26 +52,27 @@ public class MainApplication {
     private static void removeAPet() {
         seeAllPets();
         System.out.println("Please select the type of pet you want to delete and enter their name.");
-        PetsServices.delete(UserInput.petSpecies(numberInput()), UserInput.petName());
+        PetsServices.delete(UserInput.petSpecies(), UserInput.petName());
     }
 
-    public static void addAPet()   {
-        petSelection(UserInput.petSpecies(numberInput()));
+    public static void addAPet()  {
+       String petSelection = UserInput.petSpecies();
+        petSelection(petSelection);
         whatsNext();
     }
 
 
 
-    public static void petSelection(String petSpecies)   {
-        switch(petSpecies) {
+    public static void petSelection(String petSelection)   {
+        switch(petSelection) {
             case "dog": //Dog
-                PetsServices.addToList(petInfo(petSpecies));
+                petInfo(petSelection);
                 break;
             case "cat": //Cat
-                PetsServices.addToList(petInfo(petSpecies));
+                petInfo(petSelection);
                 break;
             case "unicorn": //Unicorn
-                PetsServices.addToList(petInfo(petSpecies));
+                petInfo(petSelection);
                 break;
         }
     }

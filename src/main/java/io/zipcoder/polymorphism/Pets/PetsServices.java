@@ -12,9 +12,24 @@ import java.util.Objects;
 
 public class PetsServices{
 
-    static List<Pets> petList = new ArrayList<>();
-    static Integer id = 0;
-
+    static List<Pets> petList;
+    static Integer id = 1;
+    
+    public PetsServices (List<Pets> petListRead){
+        petList = petListRead;
+    }
+    
+    public PetsServices (){
+        petList = new ArrayList<>();
+    }
+    
+    public List<Pets> getList(){
+        return petList;
+    }
+    
+public void setList (List<Pets> petList){
+    PetsServices.petList = petList;
+}
     public static boolean addToList(Pets pet)   {
      petList.add(pet);
         writeJSON();
@@ -81,18 +96,15 @@ public class PetsServices{
         }
     }
 
-//    public static void readJSON(){
-//        ObjectMapper mapper = new ObjectMapper();
-//        SimpleModule module = new SimpleModule();
-//        module.addDeserializer(Pets.class, new PetsDeserializer());
-//        mapper.registerModule(module);
-//        try {
-//            Pets pets = mapper.readValue(new File("pets.json"), Pets.class);
-//            addToList(pets);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+    public static void readJSON(){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            Pets pets = mapper.readValue(new File("pets.json"), Pets.class);
+            addToList(pets);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

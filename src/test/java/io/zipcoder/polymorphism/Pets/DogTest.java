@@ -70,4 +70,5 @@ class DogTest {
         String actual = dog.toString();
         Assertions.assertEquals(expected, actual);
     }
+
 }

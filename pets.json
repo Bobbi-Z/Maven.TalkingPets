@@ -1,13 +1,6 @@
 [ {
-  "color" : "brown",
-  "type" : "dog",
-  "name" : "Spot"
-}, {
-  "color" : "Calico",
-  "type" : "cat",
-  "name" : "Patches"
-}, {
-  "color" : "White",
-  "type" : "unicorn",
-  "name" : "Sparkles"
+  "id" : 1,
+  "species" : "dog",
+  "name" : "Fluffy",
+  "color" : "Black"
 } ]

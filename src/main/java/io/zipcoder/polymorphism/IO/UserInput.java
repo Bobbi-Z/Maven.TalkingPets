@@ -18,9 +18,10 @@ public class UserInput {
         return input.nextLine();
     }
 
-    public static String petSpecies(Integer inputSelection){
+    public static String petSpecies(){
         petMenu();
-        switch (inputSelection){
+        int speciesSelection = numberInput();
+        switch (speciesSelection){
             case 1:
                 return "dog";
             case 2:
@@ -39,7 +40,9 @@ public class UserInput {
 
     public static Pets petInfo(String petSpecies)   {
         System.out.println("Please enter your " + petSpecies + "'s information:");
-        return PetsServices.whatPetToCreate(petSpecies, petName(), petColor());
+        String name = petName();
+        String color = petColor();
+        return PetsServices.whatPetToCreate(petSpecies, name, color);
     }
 
     public static String petName(){
